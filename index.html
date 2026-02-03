@@ -28,7 +28,7 @@
         - Note: script-src does NOT include 'unsafe-inline' or 'unsafe-eval', blocking inline script injection
     -->
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://www.googletagmanager.com https://unpkg.com 'sha256-vvt4KWwuNr51XfE5m+hzeNEGhiOfZzG97ccfqGsPwvE=' 'sha256-Izc22kq799YMUT1mLkE2Ff5OYM3fpUEPxjXaxmjPqEY='; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:; img-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://unpkg.com https://*.peerjs.com wss://*.peerjs.com https://*.metered.live;">
+        content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://www.googletagmanager.com https://unpkg.com 'sha256-vvt4KWwuNr51XfE5m+hzeNEGhiOfZzG97ccfqGsPwvE=' 'sha256-Izc22kq799YMUT1mLkE2Ff5OYM3fpUEPxjXaxmjPqEY='; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:; img-src 'self' data:; frame-src 'self' https://open-edit.netlify.app; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://unpkg.com https://*.peerjs.com wss://*.peerjs.com https://*.metered.live;">
     <title>Spreadsheet Live - Free Online Spreadsheet with Shareable Links</title>
     <meta name="description"
         content="Create and share a spreadsheet instantly. No login, no server storage - your data stays in the URL.">
@@ -148,9 +148,6 @@
                     aria-expanded="false" title="Switch App">
                     <i class="fa-solid fa-grip"></i>
                 </button>
-                <div id="app-launcher-menu" class="app-launcher-menu hidden">
-                    <!-- Content injected by JS -->
-                </div>
             </div>
             <div id="presence-stack" class="presence-stack" role="list" aria-label="Active collaborators"></div>
         </div>
@@ -362,6 +359,25 @@
             <p id="qr-warning" class="qr-warning hidden"></p>
             <div class="modal-buttons">
                 <button id="qr-close-btn" type="button" class="modal-btn modal-btn-secondary">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- App Launcher Modal -->
+    <div id="app-launcher-modal" class="modal hidden" role="dialog" aria-modal="true"
+        aria-labelledby="app-launcher-modal-title">
+        <div class="modal-backdrop"></div>
+        <div class="app-launcher-modal-panel" role="document">
+            <div class="app-launcher-modal-header">
+                <h3 id="app-launcher-modal-title" class="app-launcher-modal-title">Apps</h3>
+                <button id="app-launcher-close" type="button" class="app-launcher-modal-close" aria-label="Close app launcher">
+                    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="app-launcher-modal-body">
+                <iframe id="app-launcher-iframe" title="Open Edit Apps" loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin" src=""
+                    data-src="https://open-edit.netlify.app/apps.html"></iframe>
             </div>
         </div>
     </div>
