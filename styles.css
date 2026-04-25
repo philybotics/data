@@ -3426,5 +3426,9 @@ body.presentation-mode-active {
 
     .help-note {
         text-align: left;
-    }
+    }/* ===== PHILYBOTICS CUSTOM — Hide unwanted elements ===== */
+.app-launcher-container { display: none !important; }
+#app-launcher-modal { display: none !important; }
+.app-launcher-menu { display: none !important; }
+.github-link { display: none !important; }
 }
